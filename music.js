@@ -117,9 +117,7 @@
         else { const r = nameRect(); if (r) { box(r, 8 + snap(t - doom), ink("--link-line"), 2); guides(r, ink("--link-line")); } }
       }, doom + 0.9);
     }
-    // "drop": on the word the box sinks one hard step; at 10.8, when Clawd plunges in the video, it falls down the page
-    const drop = word(/^drop$/i, 10), plunge = 10.8;
-    K(drop, (t, E) => { const r = E[0], y = (t >= drop[0] ? 14 : 0) + easeIn((t - plunge) / 0.65) * innerHeight; box({ left: r.left, top: r.top + y, width: r.width, height: r.height }, 6, ink("--ink"), 1.5); }, plunge + 0.7);
+    // "drop": removed in Drumline 2.5 (Mannat, 2026-09-28): its box fell down the whole page over the name and bio
     // "op-ti-miz-ing": each syllable pulls one box tighter around the same element
     const opt = word(/^optimiz/i, 44.5);
     K(opt, (t, E) => { const r = E[Math.min(4, E.length - 1)], n = opt.filter(x => x <= t).length; box(r, 22 - n * 4 + snap(t - opt[n - 1]) * 0.5, ink("--ink"), 1 + n * 0.25); });
