@@ -1,0 +1,32 @@
+/* shared style for inner pages (research, later writing); colour tokens live in theme.css */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 16px/1.6 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+main { max-width: 44rem; margin: 0 auto; padding: clamp(2rem, 8vh, 5rem) 1.25rem 6rem; }
+.back { display: inline-block; margin-bottom: 2.5rem; font-size: 0.92rem; color: var(--muted); }
+h1 { font-size: 2rem; line-height: 1.25; font-weight: 700; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+.meta { color: var(--muted); font-size: 0.92rem; margin: 0 0 2rem; font-variant-numeric: tabular-nums; }
+h2 { font-size: 1.25rem; line-height: 1.3; font-weight: 600; margin: 2.25rem 0 0.6rem; }
+p { margin: 0 0 1.1rem; }
+.draft { color: var(--muted); font-style: italic; }
+img, figure { max-width: 100%; }
+figure { margin: 1.5rem 0; }
+figcaption { color: var(--muted); font-size: 0.88rem; margin-top: 0.4rem; }
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--link-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color .15s, color .15s;
+}
+a:hover { color: var(--accent); text-decoration-color: currentColor; }
+::selection { background: var(--rule); }
+

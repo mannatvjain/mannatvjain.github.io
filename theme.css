@@ -1,0 +1,107 @@
+/* the palette, defined once for every page */
+:root {
+  --bg: #ffffff;
+  --ink: #1f2328;
+  --muted: #656d76;
+  --rule: #e3e5e8;
+  --link-line: #ff48b0;
+  --accent: #0078bf;
+  --card-line: color-mix(in srgb, var(--muted) 45%, var(--bg));   /* the border of cards, slides and the resume */
+}
+
+/* the ruled list (title, year on the right, grey line below): homepage Research and the paper lists */
+.work, .papers-list { list-style: none; padding: 0; margin: 0; }
+.work li, .papers-list li { padding: 12px 0; border-top: 1px solid var(--rule); }
+.work li:last-child, .papers-list li:last-child { border-bottom: 1px solid var(--rule); }
+.work .row, .papers-list .row { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+.work .title, .papers-list .title { font-weight: 600; text-decoration: none; }
+.work .when, .papers-list .when { color: var(--muted); font-size: 0.85rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.work .what, .papers-list .what { color: var(--muted); font-size: 0.92rem; margin-top: 2px; }
+
+/* caption row at the top of inner pages: the back link in small mono caps; shared by every page */
+body { transition: background-color .25s ease, color .25s ease; }
+.strip { display: flex; justify-content: space-between; align-items: center; min-height: 14px; margin: 0 0 0.65rem; }
+.page .strip { margin-bottom: 2.75rem; }
+.strip .back {
+  font: 400 10.5px/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); margin: 0;
+}
+.strip .back:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { body { transition: none; } }
+
+/* top bar on every page: a grey-ruled box across the window, the name on the left, sections on the right (after jasminexli.com) */
+.topbar {
+  position: absolute; top: 24px; left: 24px; right: 24px; z-index: 5;
+  display: flex; border: 1px solid var(--rule); background: var(--bg);
+}
+.topbar a {
+  display: flex; align-items: center; justify-content: center; height: 48px; padding: 0 1.5rem;
+  font: 400 11px/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none; border-left: 1px solid var(--rule); white-space: nowrap;
+}
+.topbar .name { border-left: 0; border-right: 1px solid var(--rule); margin-right: auto; font-weight: 600; }
+.topbar a:hover { color: var(--accent); }
+.topbar .more { white-space: pre; }   /* keeps the space in "Projects & Portfolio" (a flex item would trim it) */
+.topbar a[aria-current="page"] { background: var(--ink); color: #fff; }
+.topbar .mode {
+  all: unset; box-sizing: border-box; cursor: pointer; display: grid; place-items: center; width: 48px; height: 48px;
+  border-left: 1px solid var(--rule); color: var(--ink);
+}
+.topbar .mode:hover { color: var(--accent); }
+.topbar .mode:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.topbar .mode .off, [data-visuals="off"] .topbar .mode .on { display: none; }
+[data-visuals="off"] .topbar .mode .off { display: block; }
+.topbar .mode .dot { fill: var(--link-line); }
+/* visuals off: the canvases music.js and speakers.js draw on */
+[data-visuals="off"] body > canvas[aria-hidden] { display: none; }
+body > main { padding-top: calc(24px + 50px + clamp(2.5rem, 7vh, 4.5rem)); }
+/* where the column reaches under the corner player (player.css), leave room to scroll the last line clear of it */
+@media (max-width: 1150px) { body > main { padding-bottom: 12rem; } }
+@media (max-width: 800px) {   /* stacked bar: the one-row bar needs ~800px */
+  .topbar { top: 16px; left: 16px; right: 16px; flex-wrap: wrap; }
+  .topbar a { flex: 1 1 0; padding: 0 0.25rem; height: 44px; letter-spacing: 0.12em; }
+  .topbar .mode { width: 44px; height: 44px; flex: none; }
+  .topbar .name { flex-basis: 100%; margin: 0; border-right: 0; border-bottom: 1px solid var(--rule); justify-content: flex-start; padding: 0 1rem; }
+  .topbar .name + a { border-left: 0; }
+  body > main { padding-top: calc(16px + 90px + 2.25rem); }
+}
+@media (max-width: 880px) { .topbar .more { display: none; } }   /* "Projects & Portfolio" is "Projects" where the row is tight */
+
+/* "still going" dots: three small squares pulsing in turn (Reading: a book being read; Bio-ML papers: soon) */
+.dots { display: inline-flex; gap: 4px; margin-left: 0.55rem; vertical-align: middle; }
+.dots i { width: 5px; height: 5px; background: var(--muted); animation: dots-pulse 1.2s infinite; }
+.dots i:nth-child(2) { animation-delay: 0.2s; }
+.dots i:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dots-pulse { 0%, 60%, 100% { opacity: 0.25; } 20% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .dots i { animation: none; opacity: 0.6; } }
+
+/* "Soon": grey placeholder rows in the paper list's layout, with a slow shimmer (Writing, Bio-ML papers, Interpretability papers) */
+.soon-head { margin-bottom: 0.9rem; }
+.skeleton { list-style: none; padding: 0; margin: 0; }
+.skeleton li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
+.skeleton li:last-child { border-bottom: 1px solid var(--rule); }
+.skeleton .row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+.skeleton .bar { display: block; height: 11px; border-radius: 2px; background: linear-gradient(90deg, var(--rule) 0%, #f1f2f4 50%, var(--rule) 100%) 0 0 / 300% 100%; animation: shimmer 2.4s ease-in-out infinite; }
+.skeleton .y { width: 34px; flex: none; }
+.skeleton .a { height: 8px; margin-top: 0.6rem; opacity: 0.7; }
+.skeleton li:nth-child(2) .bar { animation-delay: 0.15s; } .skeleton li:nth-child(3) .bar { animation-delay: 0.3s; }
+.skeleton li:nth-child(4) .bar { animation-delay: 0.45s; } .skeleton li:nth-child(5) .bar { animation-delay: 0.6s; }
+.skeleton li:nth-child(6) .bar { animation-delay: 0.75s; }
+@keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .skeleton .bar { animation: none; } }
+
+/* section headings on every page: small grey mono caps with a hairline running right (the Projects & Portfolio style) */
+body main h2 { display: flex; align-items: center; gap: 12px; margin: 40px 0 12px;
+  font: 400 10.5px/16px ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+body main h2::after { content: ""; flex: 1; border-top: 1px solid var(--rule); }
+
+/* long page titles (a talk title, a paper title) stay readable on phones */
+@media (max-width: 600px) { body.page main h1 { font-size: 1.6rem; line-height: 1.25; } }
+
+
+/* the list of notes on the Writing page (written by notes.py) */
+.notes-list { margin-top: 24px; }
+.notes-tags { margin: 12px 0 0; font: 400 10.5px/16px ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.12em; text-transform: uppercase; }
+.notes-tags a { color: var(--muted); text-decoration-color: var(--rule); }
+.notes-tags a:hover { color: var(--accent); }
+.notes-list .lock, .work .lock { margin-right: auto; margin-left: 10px; font: 400 10px/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--card-line); border-radius: 3px; padding: 3px 5px; align-self: center; }

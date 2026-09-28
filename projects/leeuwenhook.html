@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LeeuwenHook · Mannat Vikramaditya Jain</title>
+<link rel="stylesheet" href="../page.css">
+<link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../player.css">
+<script src="../visuals.js"></script>
+<style>
+  /* a talk as its slides, one column: each slide framed like the Projects cards (white, thin grey border, 3px corners),
+     12px apart. A note (Mannat's to write) can sit under a slide inside its frame; an empty note takes no space. */
+  .deck { margin: 0.25rem 0 0; display: grid; gap: 12px; }
+  /* white space between the frame and the slide; the frame keeps the cards' 3px corners; the slide has its own border and 2px corners */
+  .deck .row { padding: 10px; border: 1px solid var(--card-line); border-radius: 3px; }
+  .deck img { display: block; width: 100%; height: auto; border: 1px solid var(--card-line); border-radius: 2px; }   /* the slide's own border, inside the frame */
+  @media (max-width: 600px) { .deck .row { padding: 6px; } }
+  .deck .note { margin: 10px -10px -10px; padding: 12px 20px 16px; font-size: 0.95rem; line-height: 1.6; border-top: 1px solid var(--rule); }
+  .deck .note:empty { display: none; }
+  .deck .note p { margin: 0 0 0.8rem; }
+</style>
+</head>
+<body class="page">
+<main>
+  <nav class="topbar" aria-label="Site"><a class="name" href="../">Mannat Vikramaditya Jain</a><a href="../projects.html" aria-current="page">Projects<span class="more"> &amp; Portfolio</span></a><a href="../writing.html">Writing</a><a href="../now.html">Now</a><a href="../resume.html">Resume</a><button class="mode" type="button" aria-label="Music visuals on or off" title="Music visuals on/off"><svg class="on" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3"/><rect class="dot" x="5" y="5" width="6" height="6"/></svg><svg class="off" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 2"/></svg></button></nav>
+  <div class="strip"><a class="back" href="../projects.html">← Projects &amp; Portfolio</a></div>
+  <h1>Identifying biologically interpretable features in metagenomic foundation models for DNA synthesis screening</h1>
+  <p class="meta"><a href="../files/leeuwenhook-slides.pdf" target="_blank" rel="noopener">PDF</a></p>
+
+  <!-- Mannat's project: the slides of his LeeuwenHook talk (from LeeuwenHook (2).pdf), each with a note spot under it for him to write. -->
+  <div class="deck">
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-01.jpg" width="1440" height="810" alt="Slide 1: Title">
+      <div class="note"><!-- Mannat writes the note for slide 1 (Title) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-02.jpg" width="1440" height="810" alt="Slide 2: Introduction: Screening">
+      <div class="note"><!-- Mannat writes the note for slide 2 (Introduction: Screening) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-03.jpg" width="1440" height="810" alt="Slide 3: Introduction: METAGENE-1" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 3 (Introduction: METAGENE-1) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-04.jpg" width="1440" height="810" alt="Slide 4: Objectives" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 4 (Objectives) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-05.jpg" width="1440" height="810" alt="Slide 5: Methodology: Data Filtering" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 5 (Methodology: Data Filtering) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-06.jpg" width="1440" height="810" alt="Slide 6: Methodology: Linear Probes" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 6 (Methodology: Linear Probes) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-07.jpg" width="1440" height="810" alt="Slide 7: Methodology: Sparse Autoencoders" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 7 (Methodology: Sparse Autoencoders) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-08.jpg" width="1440" height="810" alt="Slide 8: Methodology: Autointerpretability" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 8 (Methodology: Autointerpretability) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-09.jpg" width="1440" height="810" alt="Slide 9: Results: Pathogenicity" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 9 (Results: Pathogenicity) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-10.jpg" width="1440" height="810" alt="Slide 10: Results: Organism Representations" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 10 (Results: Organism Representations) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-11.jpg" width="1440" height="810" alt="Slide 11: Results: Functional Latents" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 11 (Results: Functional Latents) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-12.jpg" width="1440" height="810" alt="Slide 12: Discussion: Conclusions" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 12 (Discussion: Conclusions) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-13.jpg" width="1440" height="810" alt="Slide 13: Discussion: Limitations & Future" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 13 (Discussion: Limitations & Future) --></div>
+    </div>
+    <div class="row">
+      <img src="../img/leeuwenhook/slide-14.jpg" width="1440" height="810" alt="Slide 14: References" loading="lazy">
+      <div class="note"><!-- Mannat writes the note for slide 14 (References) --></div>
+    </div>
+  </div>
+</main>
+<script src="../player.js"></script>
+<script src="../music.js"></script>
+<script src="../speakers.js"></script>
+</body>
+</html>

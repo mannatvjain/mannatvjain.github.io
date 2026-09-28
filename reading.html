@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading · Mannat Vikramaditya Jain</title>
+<link rel="stylesheet" href="page.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="player.css">
+<script src="visuals.js"></script>
+<style>
+  .head { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; margin: 0 0 2.5rem; }
+  .head h1 { margin: 0; }
+  .head img { height: 84px; width: auto; max-width: 55%; object-fit: contain; display: block; }
+  @media (max-width: 600px) { .head img { height: 56px; } }
+
+  /* a plain numbered list of titles; each opens that book's page */
+  .list { margin: 0; padding-left: 1.6rem; }
+  .list li { margin: 0 0 0.45rem; padding-left: 0.2rem; }
+  .list li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  .intro { margin: 0 0 1.75rem; }
+  .intro .cite { display: block; margin-top: 6px; font-size: 0.85rem; color: var(--muted); }
+  .intro .cite::before { content: "— "; }
+  /* the paper lists: boxed links at the top, after alexjerpelea.com's "mech-interp place →" */
+  .papers { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 2.5rem; }
+  .papers a {
+    display: inline-flex; align-items: center; height: 40px; padding: 0 1rem; background: var(--bg); color: var(--ink); text-decoration: none;
+    border: 1px solid var(--rule); border-radius: 3px;
+    font: 400 11px/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .papers a:hover { color: var(--accent); border-color: var(--accent); }
+  body .shelf h2:first-child { margin-top: 0; }
+  /* not read yet: grey, no link */
+  .list .unread, .list .unread a { color: var(--muted); }
+  .list .unread a { text-decoration-color: var(--rule); }
+  .list .unread a:hover { color: var(--accent); text-decoration-color: currentColor; }
+  /* partway through: a thin bar after the title */
+  .progress { display: inline-block; width: 56px; height: 3px; margin-left: 0.6rem; vertical-align: middle; background: var(--rule); }
+  .progress span { display: block; height: 100%; background: var(--link-line); }
+</style>
+</head>
+<body class="page">
+<main>
+  <nav class="topbar" aria-label="Site"><a class="name" href="./">Mannat Vikramaditya Jain</a><a href="projects.html">Projects<span class="more"> &amp; Portfolio</span></a><a href="writing.html">Writing</a><a href="now.html">Now</a><a href="resume.html">Resume</a><button class="mode" type="button" aria-label="Music visuals on or off" title="Music visuals on/off"><svg class="on" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3"/><rect class="dot" x="5" y="5" width="6" height="6"/></svg><svg class="off" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 2"/></svg></button></nav>
+  <div class="strip"><a class="back" href="./">← Homepage</a></div>
+  <div class="head"><h1>Reading</h1><img src="img/canopy.jpg" alt=""></div>
+
+  <p class="intro"><em>If that notebook is any indication, you pursue scholarship in your free time for its own sake. That is encouraging. It is, perhaps, the best argument you could make on your own behalf.</em><span class="cite">Jasnah Kholin, <i>The Way of Kings</i></span></p>
+  <div class="papers"><a href="reading/interpretability-papers.html">Interpretability papers →</a><a href="reading/bio-ml-papers.html">Bio-ML papers →</a></div>
+
+  <div class="shelf">
+    <h2>Biosecurity</h2>
+    <ol class="list">
+      <li>Soon!</li>
+    </ol>
+    <h2>History of Science</h2>
+    <ol class="list">
+      <li><a href="https://www.goodreads.com/book/show/61539.The_Structure_of_Scientific_Revolutions" target="_blank" rel="noopener">The Structure of Scientific Revolutions</a></li>
+      <li><a href="https://www.goodreads.com/book/show/745236.The_Copernican_Revolution" target="_blank" rel="noopener">The Copernican Revolution</a><span class="progress" role="progressbar" aria-label="Mostly read" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span style="width: 75%"></span></span></li>
+      <li class="unread"><a href="https://www.goodreads.com/book/show/3175205-inventing-temperature" target="_blank" rel="noopener">Inventing Temperature</a></li>
+      <li class="unread"><a href="https://www.goodreads.com/book/show/50489320-the-knowledge-machine" target="_blank" rel="noopener">The Knowledge Machine</a></li>
+      <li><a href="https://www.goodreads.com/book/show/852046.Drawing_Theories_Apart" target="_blank" rel="noopener">Drawing Theories Apart</a><span class="progress" role="progressbar" aria-label="A third through" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"><span style="width: 33%"></span></span></li>
+      <li class="unread"><a href="https://www.goodreads.com/book/show/16614.Leviathan_and_the_Air_Pump" target="_blank" rel="noopener">Leviathan and the Air-Pump</a></li>
+      <li class="unread"><a href="https://www.goodreads.com/book/show/137979.Against_Method" target="_blank" rel="noopener">Against Method</a></li>
+      <li class="unread"><a href="https://www.goodreads.com/book/show/317330.The_Strategy_of_Conflict" target="_blank" rel="noopener">Strategy of Conflict</a></li>
+      <li class="unread"><a href="https://www.goodreads.com/book/show/981761.Image_and_Logic" target="_blank" rel="noopener">Image and Logic</a></li>
+      <li><a href="https://www.goodreads.com/book/show/530415.The_Art_of_Doing_Science_and_Engineering" target="_blank" rel="noopener">Art of Doing Science and Engineering</a></li>
+    </ol>
+    <h2>Other recent</h2>
+    <ol class="list">
+      <li><a href="https://www.goodreads.com/book/show/244813482-the-fires-of-december" target="_blank" rel="noopener">The Fires of December</a></li>
+      <li><a href="https://www.goodreads.com/book/show/22609391-the-wright-brothers" target="_blank" rel="noopener">The Wright Brothers</a></li>
+      <li><a href="https://www.goodreads.com/book/show/59802037-what-we-owe-the-future" target="_blank" rel="noopener">What We Owe The Future</a></li>
+      <li><a href="https://www.goodreads.com/book/show/43205240-working" target="_blank" rel="noopener">Working</a></li>
+      <li><a href="https://www.goodreads.com/book/show/241434373-the-infinity-machine" target="_blank" rel="noopener">The Infinity Machine</a></li>
+    </ol>
+  </div>
+</main>
+<script src="player.js"></script>
+<script src="music.js"></script>
+<script src="speakers.js"></script>
+</body>
+</html>

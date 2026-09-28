@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects &amp; Portfolio · Mannat Vikramaditya Jain</title>
+<link rel="stylesheet" href="page.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="player.css">
+<script src="visuals.js"></script>
+<style>
+  /* one card per piece of work (after alexjerpelea.com): title, a small date · status line, a short summary, links.
+     Spacing is on a 4px scale (4 8 12 16 20 24 40); type is four sizes: 16 title, 15 body and child title, 14 links, 10.5 mono labels. */
+  :root { --card-gap: 12px; }
+  main h1 + h2 { margin-top: 32px; }
+  .cards { display: grid; gap: var(--card-gap); }
+  .work-card { border: 1px solid var(--card-line); border-radius: 3px; padding: 16px 20px; }
+  .work-card h3 { margin: 0; font-size: 16px; line-height: 22px; font-weight: 600; }
+  .work-card h3 a { text-decoration: none; }
+  .work-card h3 a:hover { color: var(--accent); }
+  /* titles link only to pages on this site; places elsewhere go in the link row, marked with a small arrow.
+     Cards whose title links darken on hover; visible keyboard focus */
+  .work-card a[target="_blank"]::after { content: "↗"; display: inline-block; margin-left: 3px; font-size: 0.8em; text-decoration: none; color: var(--muted); }
+  .work-card:has(h3 a) { transition: border-color .15s; }
+  .work-card:has(h3 a):hover { border-color: var(--muted); }
+  .work-card a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) { .work-card:has(h3 a) { transition: none; } }
+  /* date in small mono caps, then the venue / role in normal muted text (spaced capitals are hard to read at length) */
+  .work-card .when { margin: 4px 0 0; font-size: 13px; line-height: 20px; color: var(--muted); }
+  .work-card .when .d { font: 400 10.5px/20px ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+  .work-card .when .v::before { content: "·"; margin: 0 0.45em 0 0.5em; }
+  .work-card .sum { margin: 8px 0 0; font-size: 15px; line-height: 24px; color: var(--ink); }
+  .work-card .links { margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; line-height: 20px; }
+  .work-card .rel { margin: 0 0 4px; font: 400 10.5px/16px ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .work-card.child { padding: 12px 20px; }   /* same 20px sides as big cards, so text edges line up */
+  .work-card.child h3 { font-size: 15px; line-height: 20px; }
+  .work-card.child .links { margin-top: 8px; }
+  /* Soon: ghost cards, dashed outlines the size and spacing of real cards, holding the shimmer rows */
+  .skeleton { display: grid; gap: var(--card-gap); }
+  .skeleton li, .skeleton li:last-child { border: 1px dashed var(--card-line); border-radius: 3px; padding: 18px 20px 20px; }
+  .skeleton .y { display: none; }                                       /* real cards have no right-hand year */
+  .skeleton .t { height: 12px; }                                        /* title */
+  .skeleton .a { height: 8px; margin-top: 10px; opacity: 0.7; width: 22% !important; }   /* date line */
+  .skeleton li::after { content: ""; display: block; height: 8px; margin-top: 14px; width: 88%; border-radius: 2px;
+    background: linear-gradient(90deg, var(--rule) 0%, #f1f2f4 50%, var(--rule) 100%) 0 0 / 300% 100%; opacity: 0.8; animation: shimmer 2.4s ease-in-out infinite; }   /* body */
+  @media (prefers-reduced-motion: reduce) { .skeleton li::after { animation: none; } }
+  /* a project and what it grew out of, on a short timeline (after LinkedIn's grouped roles): a solid square beside the
+     project, hollow ones beside its origins, joined by a thin line that stops short of each marker. The rail hangs 26px
+     into the margin so the boxes keep the column's left edge; phones indent the group so the rail sits on the column edge.
+     --y1 / --y2: the centre of the first title line in a big / child card. */
+  .tl { --x: -26px; --y1: 28px; --y2: 43px; display: grid; gap: var(--card-gap); }
+  .tl .step { position: relative; }
+  .tl .mk { position: absolute; left: calc(var(--x) - 4px); top: calc(var(--y1) - 4px); width: 8px; height: 8px; box-sizing: border-box; background: var(--ink); }
+  .tl .kid .mk { top: calc(var(--y2) - 4px); background: var(--bg); border: 1.5px solid var(--ink); }
+  .tl .step:not(:last-child)::after { content: ""; position: absolute; left: calc(var(--x) - 0.5px); top: calc(var(--y1) + 8px);
+    bottom: calc(-1 * (var(--card-gap) + var(--y2) - 8px)); border-left: 1px solid var(--muted); }
+  .tl .kid:not(:last-child)::after { top: calc(var(--y2) + 8px); }
+  @media (max-width: 600px) { .tl { --x: -14px; padding-left: 22px; } }
+</style>
+</head>
+<body class="page">
+<main>
+  <nav class="topbar" aria-label="Site"><a class="name" href="./">Mannat Vikramaditya Jain</a><a href="projects.html" aria-current="page">Projects<span class="more"> &amp; Portfolio</span></a><a href="writing.html">Writing</a><a href="now.html">Now</a><a href="resume.html">Resume</a><button class="mode" type="button" aria-label="Music visuals on or off" title="Music visuals on/off"><svg class="on" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3"/><rect class="dot" x="5" y="5" width="6" height="6"/></svg><svg class="off" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 2"/></svg></button></nav>
+  <div class="strip"><a class="back" href="./">← Homepage</a></div>
+  <h1>Projects &amp; Portfolio</h1>
+
+  <!-- Mannat writes this page. -->
+  <h2>Research</h2>
+  <div class="cards">
+    <article class="work-card">
+      <h3><span class="title">O(3)-equivariant sparse autoencoders for chemical neural potentials</span></h3>
+      <p class="when"><span class="d">2026</span><span class="v">MARS V at Goodfire · under review</span></p>
+      <p class="sum">Sparse autoencoders that keep or drop whole rotating groups of features at once, so a feature means the same thing however a molecule is turned. Trained on MACE-MP-0 activations. Mentored by Thomas Dooms and Ward Gauderis; extended with a $10k BlueDot rapid grant.</p>
+    </article>
+    <div class="tl">
+      <div class="step">
+        <span class="mk" aria-hidden="true"></span>
+        <article class="work-card" id="leeuwenhook">
+          <h3><a class="title" href="projects/leeuwenhook.html">LeeuwenHook</a></h3>
+          <p class="when"><span class="d">May – Aug. 2026</span><span class="v">solo</span></p>
+          <p class="sum">Do metagenomic foundation models learn gene function, or just composition? Probes and sparse autoencoders on METAGENE-1 find cross-family latents for genes like helicase that beat k-mer baselines on a held-out viral family.</p>
+          <p class="links"><a href="projects/leeuwenhook.html">Slides</a><a href="files/leeuwenhook-slides.pdf" target="_blank" rel="noopener">PDF</a></p>
+        </article>
+      </div>
+      <div class="step kid">
+        <span class="mk" aria-hidden="true"></span>
+        <article class="work-card child" id="apart-metagene">
+          <p class="rel">Started as</p>
+          <h3><span class="title">Sparse autoencoder interpretability of METAGENE-1</span></h3>
+          <p class="when"><span class="d">Apr. 2026</span><span class="v">Apart Research AIxBio hackathon · team of five · track spotlight</span></p>
+          <p class="links"><a href="https://apartresearch.com/project/sparse-autoencoder-interpretability-of-the-metagene1-genomic-foundation-model-cmuy" target="_blank" rel="noopener">Project</a><a href="https://github.com/mannatvjain/metageniuses" target="_blank" rel="noopener">Code</a></p>
+        </article>
+      </div>
+    </div>
+    <article class="work-card">
+      <h3><span class="title">Dynamic DNA nanostructures, Gang Lab</span></h3>
+      <p class="when"><span class="d">Sept. 2025 – May 2026</span><span class="v">Columbia Chemical Engineering</span></p>
+      <p class="sum">Built a microscopy analysis pipeline in Python to quantify how CRISPR-Cas9 degrades DNA origami lattices. Second author on a paper using enzyme kinetics to organize dynamic DNA nanostructures (in preparation).</p>
+      <p class="links"><a href="https://github.com/mannatvjain/gang-lab-10-8uM-publication" target="_blank" rel="noopener">Code</a></p>
+    </article>
+    <article class="work-card">
+      <h3><span class="title">Bias in ICU documentation</span></h3>
+      <p class="when"><span class="d">2024 – 2025</span><span class="v">MIT Laboratory for Computational Physiology</span></p>
+      <p class="sum">Found ethnic disparities in nursing documentation across 53,111 ICU stays in MIMIC-III, MIMIC-IV and eICU. Two abstracts in <i>Critical Care Medicine</i>, presented at SCCM Congress 2025.</p>
+      <p class="links"><a href="https://journals.lww.com/ccmjournal/citation/2025/01001/350__differences_in_documentation_practices_across.303.aspx" target="_blank" rel="noopener">Abstract 1</a><a href="https://journals.lww.com/ccmjournal/citation/2025/01001/356__variation_in_icu_nursing_documentation_across.309.aspx" target="_blank" rel="noopener">Abstract 2</a></p>
+    </article>
+  </div>
+  <h2>Organizing</h2>
+  <div class="cards">
+    <article class="work-card">
+      <h3><span class="title">Columbia AI Alignment Club</span></h3>
+      <p class="when"><span class="d">Jan. 2026 – present</span><span class="v">Director</span></p>
+      <p class="sum">Ran six fellowships on $30,000+ from Kairos, organized talks by researchers at OpenAI and Redwood Research, and teach mechanistic interpretability. Writing an AI×bio curriculum.</p>
+      <p class="links"><a href="https://cualignment.org" target="_blank" rel="noopener">cualignment.org</a></p>
+    </article>
+    <article class="work-card">
+      <h3><span class="title">MakeCU 2025</span></h3>
+      <p class="when"><span class="d">2025</span></p>
+      <p class="links"><a href="https://www.makecu.dev/" target="_blank" rel="noopener">makecu.dev</a></p>
+    </article>
+  </div>
+  <h2>Notes</h2>
+  <div class="cards">
+    <article class="work-card">
+      <h3><span class="title">BlueDot Summer</span></h3>
+      <p class="when"><span class="d">2026</span><span class="v">write-ups and blog posts on textbooks</span></p>
+    </article>
+  </div>
+  <h2>Software</h2>
+  <div class="cards">
+    <article class="work-card">
+      <h3><a class="title" href="./">This site</a></h3>
+      <p class="when"><span class="d">2026</span></p>
+      <p class="sum">Static HTML, CSS and JS, with a corner player and visuals that move with the song.</p>
+    </article>
+    <article class="work-card">
+      <h3><span class="title">Anu-Kram</span></h3>
+      <p class="when"><span class="d">2023</span><span class="v">Congressional App Challenge winner, NY-04</span></p>
+      <p class="sum">A search engine for Google Classroom that combines assignments, materials, announcements and questions in one place. Rust (Tauri) backend, JavaScript frontend.</p>
+      <p class="links"><a href="https://www.congressionalappchallenge.us/23-ny04/" target="_blank" rel="noopener">Announcement</a></p>
+    </article>
+  </div>
+  <h2 class="soon-head">Soon</h2>
+  <ol class="skeleton" aria-hidden="true">
+    <li><div class="row"><span class="bar t" style="width: 58%"></span><span class="bar y"></span></div><span class="bar a" style="width: 30%"></span></li>
+    <li><div class="row"><span class="bar t" style="width: 80%"></span><span class="bar y"></span></div><span class="bar a" style="width: 24%"></span></li>
+    <li><div class="row"><span class="bar t" style="width: 66%"></span><span class="bar y"></span></div><span class="bar a" style="width: 34%"></span></li>
+  </ol>
+</main>
+<script src="player.js"></script>
+<script src="music.js"></script>
+<script src="speakers.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mannat Vikramaditya Jain</title>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="player.css">
+<script src="visuals.js"></script>
+<meta name="description" content="Mannat Vikramaditya Jain — interpretability research for biology and chemistry models, with an eye toward biosecurity.">
+<style>
+  /* graphite ink; pink underline + blue hover borrowed from the riso prints */
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 16px/1.6 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 8vh, 5rem) 1.25rem 6rem;
+  }
+
+  h1 { font-size: 2.5rem; line-height: 1.2; font-weight: 700; margin: 0 0 1.5rem; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 1.5rem; line-height: 1.3; font-weight: 600;
+    margin: 2.75rem 0 0.75rem;
+  }
+  p { margin: 0 0 1.1rem; }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--link-line);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color .15s, color .15s;
+  }
+  a:hover { color: var(--accent); text-decoration-color: currentColor; }
+  ::selection { background: var(--rule); }
+
+  .roll {
+    display: flex; gap: 0; height: clamp(150px, 26vw, 240px);
+    margin: 0 0 2.5rem; border-radius: 3px; overflow: hidden;
+  }
+  .roll img { height: 100%; flex: 1 1 0; min-width: 0; object-fit: cover; display: block; }
+
+  ul { list-style: none; padding: 0; margin: 0; }
+
+
+  /* a list with small grey square bullets */
+  .elsewhere { list-style: square; padding-left: 1.1rem; }
+  .elsewhere li { margin: 0 0 0.35rem; padding-left: 0.35rem; }
+  .elsewhere li::marker { color: var(--muted); }
+
+</style>
+</head>
+<body>
+<main>
+  <nav class="topbar" aria-label="Site"><a class="name" href="./">Mannat Vikramaditya Jain</a><a href="projects.html">Projects<span class="more"> &amp; Portfolio</span></a><a href="writing.html">Writing</a><a href="now.html">Now</a><a href="resume.html">Resume</a><button class="mode" type="button" aria-label="Music visuals on or off" title="Music visuals on/off"><svg class="on" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3"/><rect class="dot" x="5" y="5" width="6" height="6"/></svg><svg class="off" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 2"/></svg></button></nav>
+  <div class="roll" aria-hidden="true">
+    <img src="img/roll-1.jpg" alt="">
+    <img src="img/roll-2.jpg" alt="" style="flex-grow:1.3">
+    <img src="img/roll-3.jpg" alt="">
+  </div>
+  <h1>Mannat Vikramaditya Jain</h1>
+
+  <p>
+    I work on interpretability for models of biology and chemistry, mostly
+    because I want to know what they've learned before they're used for anything
+    dangerous. I study materials science and computer science at
+    <a href="https://www.engineering.columbia.edu/mannat-vikramaditya-jain">Columbia</a>.
+  </p>
+  <p>
+    Right now I'm a MARS&nbsp;V scholar with <a href="https://www.goodfire.ai">Goodfire</a>,
+    mentored by Thomas Dooms, using decompositions of model weights to separate
+    what a model actually knows from what merely correlates.
+  </p>
+  <p>
+    I also direct the Columbia AI Alignment Club, where I teach mechanistic
+    interpretability and am writing an AI&times;bio curriculum.
+  </p>
+
+  <h2>Research</h2>
+  <ul class="work">
+    <li>
+      <div class="row"><a class="title" href="research/o3-saes.html">O(3)-equivariant sparse autoencoders for chemical neural potentials</a><span class="when">2026</span></div>
+      <div class="what">Finding interpretable features in rotation-equivariant models of atoms. MARS&nbsp;V at Goodfire.</div>
+    </li>
+    <li>
+      <div class="row"><a class="title" href="research/gang-lab.html">Dynamic DNA nanostructures, Gang Lab</a><span class="when">2025–</span></div>
+      <div class="what">Review paper, plus a pipeline measuring how DNA origami lattices degrade.</div>
+    </li>
+    <li>
+      <div class="row"><a class="title" href="https://journals.lww.com/ccmjournal/citation/2025/01001/356__variation_in_icu_nursing_documentation_across.309.aspx">Bias in ICU documentation</a><span class="when">2025</span></div>
+      <div class="what">Ethnic disparities in nursing documentation across 53,111 ICU stays. <i>Critical Care Medicine</i>.</div>
+    </li>
+  </ul>
+
+  <h2>Elsewhere</h2>
+  <ul class="elsewhere">
+    <li><a href="reading.html">Reading</a></li>
+    <li><a href="mailto:mvj2118@columbia.edu">Email</a></li>
+    <li><a href="https://github.com/mannatvjain">GitHub</a></li>
+  </ul>
+</main>
+
+
+<script src="player.js"></script>
+<script src="music.js"></script>
+<script src="speakers.js"></script>
+
+</body>
+</html>
