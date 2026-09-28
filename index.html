@@ -47,8 +47,9 @@
   .roll {
     display: flex; gap: 0; height: clamp(150px, 26vw, 240px);
     margin: 0 0 2.5rem; border-radius: 3px; overflow: hidden;
+    background: url(img/landscape.jpg) 64% 50% / cover;  /* one picture; the three imgs below only mark where the visuals' "photos" are */
   }
-  .roll img { height: 100%; flex: 1 1 0; min-width: 0; object-fit: cover; display: block; }
+  .roll img { height: 100%; flex: 1 1 0; min-width: 0; display: block; visibility: hidden; }
 
   ul { list-style: none; padding: 0; margin: 0; }
 
@@ -64,9 +65,9 @@
 <main>
   <nav class="topbar" aria-label="Site"><a class="name" href="./">Mannat Vikramaditya Jain</a><a href="projects.html">Projects<span class="more"> &amp; Portfolio</span></a><a href="writing.html">Writing</a><a href="now.html">Now</a><a href="resume.html">Resume</a><button class="mode" type="button" aria-label="Music visuals on or off" title="Music visuals on/off"><svg class="on" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3"/><rect class="dot" x="5" y="5" width="6" height="6"/></svg><svg class="off" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 2"/></svg></button></nav>
   <div class="roll" aria-hidden="true">
-    <img src="img/roll-1.jpg" alt="">
-    <img src="img/roll-2.jpg" alt="" style="flex-grow:1.3">
-    <img src="img/roll-3.jpg" alt="">
+    <img src="img/landscape.jpg" alt="">
+    <img src="img/landscape.jpg" alt="" style="flex-grow:1.3">
+    <img src="img/landscape.jpg" alt="">
   </div>
   <h1>Mannat Vikramaditya Jain</h1>
 
