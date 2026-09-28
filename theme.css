@@ -1,11 +1,11 @@
 /* the palette, defined once for every page */
 :root {
   --bg: #ffffff;
-  --ink: #1f2328;
-  --muted: #656d76;
-  --rule: #e3e5e8;
-  --link-line: #ff48b0;
-  --accent: #0078bf;
+  --ink: #123c64;
+  --muted: #5e7489;
+  --rule: #d9dedf;
+  --link-line: #fdb71a;
+  --accent: #097bc0;
   --card-line: color-mix(in srgb, var(--muted) 45%, var(--bg));   /* the border of cards, slides and the resume */
 }
 
@@ -81,7 +81,7 @@ body > main { padding-top: calc(24px + 50px + clamp(2.5rem, 7vh, 4.5rem)); }
 .skeleton li { padding: 0.95rem 0; border-top: 1px solid var(--rule); }
 .skeleton li:last-child { border-bottom: 1px solid var(--rule); }
 .skeleton .row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
-.skeleton .bar { display: block; height: 11px; border-radius: 2px; background: linear-gradient(90deg, var(--rule) 0%, #f1f2f4 50%, var(--rule) 100%) 0 0 / 300% 100%; animation: shimmer 2.4s ease-in-out infinite; }
+.skeleton .bar { display: block; height: 11px; border-radius: 2px; background: linear-gradient(90deg, var(--rule) 0%, #e8ebe8 50%, var(--rule) 100%) 0 0 / 300% 100%; animation: shimmer 2.4s ease-in-out infinite; }
 .skeleton .y { width: 34px; flex: none; }
 .skeleton .a { height: 8px; margin-top: 0.6rem; opacity: 0.7; }
 .skeleton li:nth-child(2) .bar { animation-delay: 0.15s; } .skeleton li:nth-child(3) .bar { animation-delay: 0.3s; }
